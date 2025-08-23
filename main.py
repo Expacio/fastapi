@@ -27,3 +27,19 @@ async def login():
         f"&redirect_uri={REDIRECT_URI}"
     )
     return RedirectResponse(url)
+
+@app.get("/callback")
+def callback(code: str):
+    token_url = "https://accounts.spotify.com/api/token"
+    response = requests.post(
+        token_url,
+        data={
+            "grant_type": "authorization_code",
+            "code": code,
+            "redirect_uri": REDIRECT_URI,
+            "client_id": CLIENT_ID,
+            "client_secret": CLIENT_SECRET,
+        },
+    )
+    tokens = response.json()
+    print(tokens)
