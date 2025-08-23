@@ -5,7 +5,7 @@ from fastapi.responses import RedirectResponse
 
 app = FastAPI()
 from dotenv import load_dotenv
-import os
+import os, requests
 load_dotenv()
 
 CLIENT_ID = os.getenv("SPOTIFY_CLIENT_ID")
