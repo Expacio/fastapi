@@ -128,5 +128,5 @@ def callback(code: str):
         },
         upsert=True
     )
-    return RedirectResponse(url=f"http://localhost:3000/dashboard?user_id={user_id}")
+    return RedirectResponse(url=f"https://goonify-app.vercel.app/dashboard?user_id={user_id}")
 
