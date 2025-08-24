@@ -6,6 +6,16 @@ from fastapi.responses import RedirectResponse
 app = FastAPI()
 from datetime import datetime, timedelta
 from dotenv import load_dotenv
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Next.js frontend
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 import os, requests
 load_dotenv()
 from pymongo.mongo_client import MongoClient
